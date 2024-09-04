@@ -20,9 +20,9 @@ const HotelListSection = () => {
   }, []);
 
   useEffect(() => {
-    const shuffledHotels = [...hotelListData].sort(() => 0.5 - Math.random());
-    const selectedHotels = shuffledHotels.slice(0, 4);
-    setRandomHotels(selectedHotels);
+    const shuffledMotels = [...hotelListData].sort(() => 0.5 - Math.random());
+    const selectedMotels = shuffledMotels.slice(0, 4);
+    setRandomHotels(selectedMotels);
   }, []);
 
   useEffect(() => {
@@ -123,11 +123,12 @@ const HotelListSection = () => {
             ))}
           </div>
         </div>
+
         <div className="flex flex-col gap-8  w-full">
           <div className="text-primary-foreground font-semibold text-2xl bg-primary px-3 pe-6 py-4 flex justify-between items-center">
             <p> Apartments</p>
             <Link
-              href="#"
+              href="/where-to-stay/apartments"
               className="inline-flex items-center text-base font-medium text-center text-primary-foreground border-b-2 border-b-transparent hover:border-b-2 hover:border-b-primary-foreground"
             >
               More

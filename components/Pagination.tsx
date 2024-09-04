@@ -40,6 +40,7 @@ const PaginationSection: React.FC<PaginationProps> = ({
         {/* Previous Button */}
         <PaginationItem>
           <PaginationPrevious
+            className=" cursor-pointer"
             onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
           />
         </PaginationItem>
@@ -50,6 +51,7 @@ const PaginationSection: React.FC<PaginationProps> = ({
             <PaginationLink
               isActive={page === currentPage}
               onClick={() => setCurrentPage(page)}
+              className=" cursor-pointer"
             >
               {page}
             </PaginationLink>
@@ -66,6 +68,7 @@ const PaginationSection: React.FC<PaginationProps> = ({
         {/* Next Button */}
         <PaginationItem>
           <PaginationNext
+            className=" cursor-pointer"
             onClick={() =>
               setCurrentPage(Math.min(currentPage + 1, totalPages))
             }

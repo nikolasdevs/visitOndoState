@@ -33,11 +33,11 @@ const WhereToStay: React.FC<PropType> = ({ options }) => {
 
   return (
     <>
-      <div className="w-full bg-white">
-        <div className="container mt-20 bg-white py-10">
-          <div className="w-1/2 mb-10">
-            <h2 className="text-6xl font-black text-neutral-700 font-display leading-[4rem] ">
-              Looking for where to stay in Ondo State?
+      <div className="w-full ">
+        <div className="max-w-7xl mx-auto  px-2 sm:px-6 lg:px-8 mt-20 py-10">
+          <div className="sm:w-4/6  mb-10 w-full">
+            <h2 className="displayHeader">
+              Our top pick hotels in Ondo State?
             </h2>
           </div>
           <section className="">

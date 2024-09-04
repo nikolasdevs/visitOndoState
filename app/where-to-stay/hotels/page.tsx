@@ -1,5 +1,5 @@
 import Hero from "@/components/where-to-stay/hotels/Hero";
-import HotelListSection from "@/components/where-to-stay/hotels/Hotels";
+import HotelListSection from "@/components/where-to-stay/apartments/Apartments";
 import React from "react";
 
 const Hotels = () => {

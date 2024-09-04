@@ -365,8 +365,8 @@
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
+    --accent: 39 98% 49%;
+    --accent-foreground: 20 89% 54%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
     --border: 220 13% 91%;
@@ -393,8 +393,8 @@
     --secondary-foreground: 210 20% 98%;
     --muted: 215 27.9% 16.9%;
     --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 39 98% 49%;
+    --accent-foreground: 20 89% 54%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
     --border: 215 27.9% 16.9%;
@@ -512,9 +512,36 @@
 }
 
 .myShadow {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .bgImage {
   background-image: url("/public/dome.jpg");
+}
+
+.displayHero {
+  @apply 2xl:text-[10rem] xl:text-[8rem] lg:text-[6rem] text-[4rem] 2xl:leading-[9rem] xl:leading-[7rem] lg:leading-[5rem];
+}
+.displayHeader {
+  @apply lg:text-[4rem] text-[3rem] text-neutral-500 font-black lg:leading-[4rem] leading-[3rem] sm:w-full;
+}
+
+.parent {
+  flex-direction: column;
+  @apply z-[1000];
+}
+
+.parent[data-isOpen="true"] {
+  @apply absolute top-0;
+}
+
+.child {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  @apply flex items-center justify-center mt-5 ml-12;
+}
+
+.bgGradient {
+  @apply bg-gradient-to-b from-[#FEF2EC] via-5% to-[#fbceb7] to-95%;
 }

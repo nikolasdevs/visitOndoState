@@ -14,6 +14,7 @@ interface HotelListData {
   description: string;
   imageUrl: StaticImageData;
   link: string;
+  category: string;
 }
 
 export const hotelListData: HotelListData[] = [
@@ -24,6 +25,7 @@ export const hotelListData: HotelListData[] = [
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     imageUrl: Img1,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img2,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 3,
@@ -40,6 +43,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img3,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 4,
@@ -48,6 +52,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img4,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 5,
@@ -56,6 +61,7 @@ export const hotelListData: HotelListData[] = [
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     imageUrl: Img5,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 6,
@@ -64,6 +70,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img6,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 7,
@@ -72,6 +79,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img7,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 8,
@@ -80,6 +88,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img8,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 9,
@@ -88,6 +97,7 @@ export const hotelListData: HotelListData[] = [
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     imageUrl: Img1,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 10,
@@ -96,6 +106,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img2,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 11,
@@ -104,6 +115,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img3,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 12,
@@ -112,6 +124,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img4,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 13,
@@ -120,6 +133,7 @@ export const hotelListData: HotelListData[] = [
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     imageUrl: Img5,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 14,
@@ -128,6 +142,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img6,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 15,
@@ -136,6 +151,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img7,
     link: "#",
+     category:"accommodation"
   },
   {
     id: 16,
@@ -144,6 +160,7 @@ export const hotelListData: HotelListData[] = [
       "These are the most promising startups to keep an eye on in the upcoming year.",
     imageUrl: Img8,
     link: "#",
+     category:"accommodation"
   },
 ];
 
@@ -153,31 +170,144 @@ export const apartmentListData: HotelListData[] = [
     title: "Noteworthy technology acquisitions 2021",
     description:
       "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
-    imageUrl: Img4,
+    imageUrl: Img1,
     link: "#",
+    category:"accommodation"
+    
   },
   {
     id: 2,
     title: "Top startups to watch in 2024",
     description:
       "These are the most promising startups to keep an eye on in the upcoming year.",
-    imageUrl: Img3,
+    imageUrl: Img4,
     link: "#",
+    category:"accommodation"
   },
   {
     id: 3,
     title: "Top startups to watch in 2024",
     description:
       "These are the most promising startups to keep an eye on in the upcoming year.",
-    imageUrl: Img2,
+    imageUrl: Img3,
     link: "#",
+    category:"accommodation"
   },
   {
     id: 4,
     title: "Top startups to watch in 2024",
     description:
       "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img2,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 5,
+    title: "Noteworthy technology acquisitions 2021",
+    description:
+      "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
     imageUrl: Img1,
     link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 6,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img2,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 7,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img3,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 8,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img4,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 9,
+    title: "Noteworthy technology acquisitions 2021",
+    description:
+      "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+    imageUrl: Img8,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 10,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img7,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 11,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img6,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 12,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img5,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 13,
+    title: "Noteworthy technology acquisitions 2021",
+    description:
+      "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.",
+    imageUrl: Img4,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 14,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img3,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 15,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img2,
+    link: "#",
+    category:"accommodation"
+  },
+  {
+    id: 16,
+    title: "Top startups to watch in 2024",
+    description:
+      "These are the most promising startups to keep an eye on in the upcoming year.",
+    imageUrl: Img1,
+    link: "#",
+    category:"accommodation"
   },
 ];

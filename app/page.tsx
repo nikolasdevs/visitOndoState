@@ -14,9 +14,6 @@ export default function Home() {
         <div className="">
           <HotelSection slides={[]} />
         </div>
-        <div className="">
-          <MoreInfo />
-        </div>
       </div>
     </>
   );

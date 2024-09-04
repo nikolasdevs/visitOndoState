@@ -6,11 +6,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import { NextButton, PrevButton, usePrevNextButtons } from "../ArrowBtns";
 import "../embla.css";
 import Image, { StaticImageData } from "next/image";
-import { slidesData } from "@/data/whereToStay/hotelData";
+import { hotelListData } from "@/data/whereToStay/hotelListData";
 
-type Slide = {
+type HotelListData = {
   id: number;
-  image: StaticImageData;
+  imageUrl: StaticImageData;
   title: string;
   category: string;
 };
@@ -20,7 +20,8 @@ type PropType = {
 };
 
 const MainInfo: React.FC<PropType> = ({ options }) => {
-  const [filteredSlides, setFilteredSlides] = useState<Slide[]>(slidesData);
+  const [filteredSlides, setFilteredSlides] =
+    useState<HotelListData[]>(hotelListData);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -32,7 +33,7 @@ const MainInfo: React.FC<PropType> = ({ options }) => {
   } = usePrevNextButtons(emblaApi);
 
   const filterSlidesByCategory = (categoryName: string) => {
-    const filtered = slidesData.filter(
+    const filtered = hotelListData.filter(
       (slide) => slide.category === categoryName
     );
     setFilteredSlides(filtered);
@@ -43,28 +44,16 @@ const MainInfo: React.FC<PropType> = ({ options }) => {
   }, [filteredSlides, emblaApi]);
 
   return (
-    <div className="px-10 pb-10">
-      <section className=" w-full">
-        <div className="embla__controls">
-          <div className="embla__buttons">
-            <PrevButton
-              onClick={onPrevButtonClick}
-              disabled={prevBtnDisabled}
-            />
-            <NextButton
-              onClick={onNextButtonClick}
-              disabled={nextBtnDisabled}
-            />
-          </div>
-        </div>
-        <div className="flex items-center w-full relative">
-          <div className=" text-[32px] font-semibold flex flex-col  justify-between text-neutral-500 tracking-tighter  absolute top-0 bottom-0  w-[30rem] z-20 p-4">
+    <div className="md:mt-20 mt-10">
+      <section className="max-w-7xl mx-auto flex flex-col ">
+        <div className="flex flex-col md:flex-row w-full relative gap-6 ">
+          <div className="  font-semibold flex flex-col  text-neutral-500 md:w-4/12 w-full bg-primary-foreground  z-20 p-4">
             {" "}
             <div className="flex flex-col gap-4 ">
               <p className=" text-xl text-neutral-600 tracking-normal">
                 What are you looking for?
               </p>
-              <div className=" leading-9 pr-10">
+              <div className="sm:text-[32px] text-[1.5rem] sm:leading-9 leading-6 tracking-tighter">
                 {[
                   "Accommodation",
                   "Food & Drinks",
@@ -85,18 +74,18 @@ const MainInfo: React.FC<PropType> = ({ options }) => {
                 ))}
               </div>
             </div>
-            <p className="text-base text-primary tracking-normal">
-              More about culture
+            <p className="text-base text-primary tracking-normal mt-10">
+              More about {filteredSlides[0]?.category}
             </p>
           </div>
 
-          <div className="embla__viewport ml-96" ref={emblaRef}>
+          <div className="embla__viewport w-11/12 mx-auto" ref={emblaRef}>
             <div className="embla__container">
               {filteredSlides.map((slide) => (
-                <div className="embla__slide " key={slide.id}>
+                <div className="embla__slide flex " key={slide.id}>
                   <div className="embla__slide__image">
                     <Image
-                      src={slide.image}
+                      src={slide.imageUrl}
                       alt={slide.title}
                       layout="responsive"
                       objectFit="cover"
@@ -109,6 +98,18 @@ const MainInfo: React.FC<PropType> = ({ options }) => {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="embla__controls ">
+              <div className="embla__buttons w-full md:justify-end justify-between flex">
+                <PrevButton
+                  onClick={onPrevButtonClick}
+                  disabled={prevBtnDisabled}
+                />
+                <NextButton
+                  onClick={onNextButtonClick}
+                  disabled={nextBtnDisabled}
+                />
+              </div>
             </div>
           </div>
         </div>
