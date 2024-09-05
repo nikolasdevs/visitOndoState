@@ -45,7 +45,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="w-full fixed top-0 left-0 right-0 z-50">
+    <header className="w-full fixed top-0 left-0 right-0 z-[9999] bg-primary-foreground">
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -82,7 +82,7 @@ export function Header() {
                       </li>
                       <li>
                         <Link
-                          href="/events"
+                          href="/things-to-do/events"
                           className="text-orange-600 hover:text-orange-400 transition"
                         >
                           Events
