@@ -47,7 +47,7 @@ const Destinations = () => {
               <Image
                 src={IdanreHill1}
                 alt="Idanre Hill"
-                className="w-3/4 clip-idanreHill"
+                className="w-3/4 clip-idanreHill "
               />
             </div>
             <div className="w-1/2 flex items-center justify-center  ">
@@ -74,7 +74,7 @@ const Destinations = () => {
               <Image
                 src={IdanreHill2}
                 alt="Idanre Hill"
-                className="w-3/4 clip-AkokoSE"
+                className="w-3/4 clip-AkokoSE bg-red-500 border-4"
               />
             </div>
             <div className="w-1/2 flex items-center justify-center">

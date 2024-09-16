@@ -1,11 +1,11 @@
-import Hero from "@/components/where-to-stay/hotels/Hero";
-import HotelListSection from "@/components/where-to-stay/apartments/Apartments";
+import HotelListSection from "@/components/where-to-stay/hotels/Hotels";
+import HotelsHero from "@/components/where-to-stay/hotels/HotelsHero";
 import React from "react";
 
 const Hotels = () => {
   return (
     <div className="bg-primary-foreground">
-      <Hero />
+      <HotelsHero />
       <HotelListSection />
     </div>
   );

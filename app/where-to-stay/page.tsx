@@ -1,12 +1,12 @@
 import Hero from "@/components/where-to-stay/Hero";
-import HotelListSection from "@/components/where-to-stay/HotelListSection";
+import AccommodationSection from "@/components/where-to-stay/AccommodationSection";
 import React from "react";
 
 const page = () => {
   return (
     <div>
       <Hero />
-      <HotelListSection />
+      <AccommodationSection />
     </div>
   );
 };
