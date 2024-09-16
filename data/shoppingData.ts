@@ -4,7 +4,7 @@ import Img3 from "@/public/nature-1.jpg";
 import Img4 from "@/public/nature-2.jpg";
 import { StaticImageData } from "next/image";
 
-interface TourData {
+interface ShoppingData {
   id: number;
   title: string;
   description: string;
@@ -12,7 +12,7 @@ interface TourData {
   link: string;
 }
 
-export const tourData: TourData[] = [
+export const shoppingData: ShoppingData[] = [
   {
     id: 1,
     title: "Noteworthy technology acquisitions 2021",
@@ -79,7 +79,8 @@ export const tourData: TourData[] = [
   },
 ];
 
-export const sightSeeingData: TourData[] = [
+
+export const allMallsData: ShoppingData[] = [
   {
     id: 1,
     title: "Noteworthy technology acquisitions 2021",
@@ -146,7 +147,7 @@ export const sightSeeingData: TourData[] = [
   },
 ];
 
-export const cultureData: TourData[] = [
+export const allMarketData: ShoppingData[] = [
   {
     id: 1,
     title: "Noteworthy technology acquisitions 2021",
@@ -212,4 +213,3 @@ export const cultureData: TourData[] = [
     link: "#",
   },
 ];
-

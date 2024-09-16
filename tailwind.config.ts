@@ -79,7 +79,14 @@ const config = {
     fontFamily: {
       display: ["Montserrat"],
     },
+    lineHeight: {
+      normal: "1.5",
+      relaxed: "1.6",
+      snug: "1.4",
+      tight: "1.2",
+    },
   },
+
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
 

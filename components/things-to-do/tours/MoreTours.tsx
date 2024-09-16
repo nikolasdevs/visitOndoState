@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Img1 from "@/public/Img3.jpg";
-import { Button } from "../../ui/button";
 import Link from "next/link";
 import { tourData } from "@/data/tourData";
 import { motion } from "framer-motion";

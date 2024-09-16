@@ -408,6 +408,9 @@
   }
 }
 
+@import "/embla-carousel/embla.css";
+@import "/embla/emblaHotel.css";
+
 @layer base {
   * {
     @apply border-border;
@@ -548,4 +551,8 @@
 
 .months-container {
   @apply text-neutral-500 focus:text-accent hover:text-accent hover:border-b-accent focus:border-b-[8px] focus:border-b-accent border-b-8 border-b-transparent z-50 py-4;
+}
+
+.heroCardShadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

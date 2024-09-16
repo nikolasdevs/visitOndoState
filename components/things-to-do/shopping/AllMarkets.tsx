@@ -2,23 +2,25 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import Link from "next/link";
-import { hotelListData } from "@/data/accommodationData";
+import { allMarketData } from "@/data/shoppingData";
 import { motion } from "framer-motion";
-import PaginationSection from "@/components/Pagination";
-import ApartmentsListSection from "../apartments/Apartments";
 import { ArrowRight } from "lucide-react";
+import PaginationSection from "@/components/Pagination";
 
-const HotelListSection = () => {
+const AllMarkets = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(8);
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
-  const currentItems = hotelListData.slice(firstItemIndex, lastItemIndex);
+  const currentItems = allMarketData.slice(firstItemIndex, lastItemIndex);
   return (
     <>
-      <div className="flex flex-col max-w-7xl mx-auto px-8 gap-8 w-full">
-        <div className="flex flex-col gap-8  w-full">
-          <div className="  grid gap-6 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-center"> 
+      <div className=" mt-24 max-w-7xl px-8 mx-auto">
+        <div className="flex flex-col gap-4">
+          <div className="text-primary-foreground font-semibold mb-4 bg-primary shadow-lg text-2xl  px-3 py-4 ">
+            <p className=" ">All Markets</p>
+          </div>
+          <div className="  grid gap-6 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-center">
             {currentItems.map((card, index) => (
               <div
                 key={card.id}
@@ -28,8 +30,8 @@ const HotelListSection = () => {
                   {" "}
                   <motion.div
                     initial={false}
-                    whileHover={{ scale: 1 }} // Slightly zooms in the entire div
-                    className="overflow-hidden " // Ensures the image remains within bounds
+                    whileHover={{ scale: 1 }}
+                    className="overflow-hidden "
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div
@@ -70,19 +72,18 @@ const HotelListSection = () => {
               </div>
             ))}
           </div>
-          <div className=" sticky bottom-0 bg-primary-foreground py-4 border-t-2 border-y-white">
-            <PaginationSection
-              totalItems={hotelListData.length}
-              itemsPerPage={itemsPerPage}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-          </div>
-          <ApartmentsListSection />
         </div>
+      </div>
+      <div className="mt-10">
+        <PaginationSection
+          totalItems={allMarketData.length}
+          itemsPerPage={itemsPerPage}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </div>
     </>
   );
 };
 
-export default HotelListSection;
+export default AllMarkets;

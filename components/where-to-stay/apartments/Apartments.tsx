@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   apartmentListData,
-} from "@/data/whereToStay/hotelListData";
+} from "@/data/accommodationData";
 import { motion } from "framer-motion";
 import PaginationSection from "@/components/Pagination";
 

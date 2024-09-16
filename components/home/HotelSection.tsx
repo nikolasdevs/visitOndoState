@@ -3,8 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { NextButton, PrevButton, usePrevNextButtons } from "../ArrowBtns";
-import { slidesData } from "@/data/whereToStay/hotelData";
+import {
+  NextButton,
+  PrevButton,
+  usePrevNextButtons,
+} from "../../embla/ArrowBtns";
+import { hotelListData } from "@/data/accommodationData";
 import Image, { StaticImageData } from "next/image";
 
 type PropType = {
@@ -12,16 +16,7 @@ type PropType = {
   options?: EmblaOptionsType;
 };
 
-type Slide = {
-  id: number;
-  image: StaticImageData;
-  title: string;
-  category: string;
-};
-
 const WhereToStay: React.FC<PropType> = ({ options }) => {
-  const [slides, setSlides] = useState<Slide[]>(slidesData);
-
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const {
@@ -33,20 +28,20 @@ const WhereToStay: React.FC<PropType> = ({ options }) => {
 
   return (
     <>
-      <div className="w-full ">
-        <div className="max-w-7xl mx-auto  px-2 sm:px-6 lg:px-8 mt-20 py-10">
-          <div className="sm:w-4/6  mb-10 w-full">
-            <h2 className="displayHeader">
+      <div className="w-full mt-20">
+        <div className="max-w-7xl px-10 mx-auto flex flex-col items-start justify-center">
+          <div className=" mb-10">
+            <h2 className="font-bold text-4xl text-neutral-500">
               Our top pick hotels in Ondo State?
             </h2>
           </div>
-          <section className="">
+          <div className=" w-11/12">
             <div className="embla__viewport" ref={emblaRef}>
               <div className="embla__container">
-                {slidesData.map((slide, index) => (
+                {hotelListData.map((slide, index) => (
                   <div className="embla__slide flex flex-col" key={index}>
                     <Image
-                      src={slide.image}
+                      src={slide.imageUrl}
                       alt={slide.title}
                       layout="responsive"
                       objectFit="cover"
@@ -74,7 +69,7 @@ const WhereToStay: React.FC<PropType> = ({ options }) => {
                 />
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </>

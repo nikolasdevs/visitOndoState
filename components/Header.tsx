@@ -1,19 +1,21 @@
 "use client";
-
-import * as React from "react";
-import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import Image from "next/image";
 import logo from "@/public/ondoStateLogo2.png";
 import hotel from "@/public/hotel.png";
 import { ArrowLeft, ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import * as React from "react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -32,11 +34,9 @@ export function Header() {
     setSubMenuOpen(menu);
   };
 
-  // Close mobile menu on window resize if screen is larger than 'lg'
   React.useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
-        // 'lg' breakpoint in Tailwind is 1024px
         setIsMenuOpen(false);
       }
     };
@@ -45,297 +45,202 @@ export function Header() {
   }, []);
 
   return (
-    <header className="w-full fixed top-0 left-0 right-0 z-[9999] bg-primary-foreground">
-      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image src={logo} alt="Company Logo" width={64} height={64} />
-        </Link>
+    <>
+      <nav className="lg:w-full  fixed top-0 left-0 lg:right-0  z-[10000000] bg-primary-foreground/75 ">
+        <div className="flex max-w-7xl  relative py-4 mx-auto justify-between px-8">
+          <Link href="/" className="flex items-center  z-[10000]">
+            <Image src={logo} alt="Company Logo" width={64} height={64} />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex">
-          <NavigationMenu>
+          <NavigationMenu className="hidden lg:block ">
             <NavigationMenuList>
-              {/* Things To Do */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-xl font-semibold hover:text-accent transition">
-                  Things To Do
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-8 bg-primary-foreground shadow-lg max-w-7xl m-auto">
-                  <div className="flex justify-between ">
-                    <ul className="flex flex-col gap-2 text-4xl font-bold">
-                      <li>
-                        <Link
-                          href="/things-to-do/tours"
-                          className="text-green-600 hover:text-green-400 transition"
-                        >
-                          Tourism
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="#"
-                          className="text-sky-600 hover:text-sky-400 transition"
-                        >
-                          Sightseeing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/things-to-do/events"
-                          className="text-orange-600 hover:text-orange-400 transition"
-                        >
-                          Events
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/food-drinks"
-                          className="text-pink-600 hover:text-pink-400 transition"
-                        >
-                          Food & Drinks
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/shopping"
-                          className="text-teal-600 hover:text-teal-400 transition"
-                        >
-                          Shopping
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/nightlife"
-                          className="text-indigo-600 hover:text-indigo-400 transition"
-                        >
-                          Nightlife
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/recreation"
-                          className="text-indigo-600 hover:text-indigo-400 transition"
-                        >
-                          Recreation
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/culture"
-                          className="text-amber-600 hover:text-amber-400 transition"
-                        >
-                          Culture
-                        </Link>
-                      </li>
-                    </ul>
-                    {/* Image and Description */}
-                    <div className="mt-4 lg:mt-0 lg:ml-8 flex flex-col items-center">
-                      <Image
-                        src={hotel}
-                        alt="Hotel Image"
-                        width={360}
-                        height={240}
-                        className=""
-                      />
-                      <p className="mt-2 text-sm text-neutral-500 text-center">
-                        Beautifully designed hotels in Akure for your delight.
-                      </p>
-                    </div>
+                <NavigationMenuTrigger> Things To Do</NavigationMenuTrigger>
+                <NavigationMenuContent className="flex px-8 w-full justify-between h-[400px]">
+                  <div className="flex flex-col gap-1 p- text-4xl font-bold w-full ">
+                    <Link
+                      href="/things-to-do/tours"
+                      className="text-green-600 hover:text-green-400 w-full"
+                    >
+                      Tourism
+                    </Link>
+
+                    <Link href="#" className="text-sky-600 hover:text-sky-400 ">
+                      Sightseeing
+                    </Link>
+
+                    <Link
+                      href="/things-to-do/events"
+                      className="text-orange-600 hover:text-orange-400 "
+                    >
+                      Events
+                    </Link>
+
+                    <Link
+                      href="/things-to-do/food-drinks"
+                      className="text-pink-600 hover:text-pink-400 "
+                    >
+                      Food & Drinks
+                    </Link>
+
+                    <Link
+                      href="/things-to-do/shopping"
+                      className="text-teal-600 hover:text-teal-400 "
+                    >
+                      Shopping
+                    </Link>
+
+                    <Link
+                      href="/things-to-do/nightlife"
+                      className="text-indigo-600 hover:text-indigo-400 "
+                    >
+                      Nightlife
+                    </Link>
+
+                    <Link
+                      href="#"
+                      className="text-indigo-600 hover:text-indigo-400"
+                    >
+                      Recreation
+                    </Link>
+
+                    <Link
+                      href="/things-to-do/culture"
+                      className="text-amber-600 hover:text-amber-400"
+                    >
+                      Culture
+                    </Link>
+                  </div>
+                  {/* Image and Description */}
+                  <div className="mt-4 lg:mt-0 lg:ml-8 flex flex-col items-center">
+                    <Image
+                      src={hotel}
+                      alt="Hotel Image"
+                      className="w-[800px]"
+                    />
+                    <p className="mt-2 text-sm text-neutral-500 text-center">
+                      Beautifully designed hotels in Akure for your delight.
+                    </p>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
-              {/* Destinations */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-xl font-semibold hover:text-accent transition">
-                  Destinations
+                <NavigationMenuTrigger>
+                  {" "}
+                  <Link href="/where-to-stay">Where To Stay</Link>
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-8 bg-primary-foreground  shadow-lg max-w-7xl m-auto">
-                  <div className="flex justify-between ">
-                    <ul className="flex flex-col gap-2 lg:w-1/2 text-4xl font-bold text-neutral-500">
-                      <li>
-                        <Link
-                          href="/destinations/hotel"
-                          className="hover:text-accent transition"
-                        >
-                          Hotel
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/destinations/motel"
-                          className="hover:text-accent transition"
-                        >
-                          Motel
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/destinations/apartment"
-                          className="hover:text-accent transition"
-                        >
-                          Apartment
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/destinations/hostel"
-                          className="hover:text-accent transition"
-                        >
-                          Hostel
-                        </Link>
-                      </li>
-                    </ul>
-                    {/* Image and Description */}
-                    <div className="mt-4 lg:mt-0 lg:ml-8 flex flex-col items-center">
-                      <Image
-                        src={hotel}
-                        alt="Hotel Image"
-                        width={360}
-                        height={240}
-                        className=""
-                      />
-                      <p className="mt-2 text-sm text-neutral-500 text-center">
-                        Beautifully designed hotels in Akure for your delight.
-                      </p>
-                    </div>
+                <NavigationMenuContent className="flex px-8 w-full justify-between">
+                  <div className="flex flex-col gap-1 p- text-4xl font-bold w-full ">
+                    <Link
+                      href="/where-to-stay/hotels"
+                      className="hover:text-accent transition"
+                    >
+                      Hotel
+                    </Link>
+
+                    <Link
+                      href="/where-to-stay/motels"
+                      className="hover:text-accent transition"
+                    >
+                      Motel
+                    </Link>
+
+                    <Link
+                      href="/where-to-stay/apartments"
+                      className="hover:text-accent transition"
+                    >
+                      Apartment
+                    </Link>
+
+                    <Link
+                      href="/where-to-stay/hostel"
+                      className="hover:text-accent transition"
+                    >
+                      Hostel
+                    </Link>
+                  </div>
+                  {/* Image and Description */}
+                  <div className="mt-4 lg:mt-0 lg:ml-8 flex flex-col items-center">
+                    <Image
+                      src={hotel}
+                      alt="Hotel Image"
+                      className="w-[800px]"
+                    />
+                    <p className="mt-2 text-sm text-neutral-500 text-center">
+                      Beautifully designed hotels in Akure for your delight.
+                    </p>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
-              {/* Where To Stay */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-xl font-semibold hover:text-accent transition">
-                  Where To Stay
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-8 bg-primary-foreground shadow-lg max-w-7xl m-auto">
-                  <div className="flex justify-between ">
-                    <ul className="flex flex-col gap-2 lg:w-1/2 text-4xl font-bold text-neutral-500">
-                      <li>
-                        <Link
-                          href="/where-to-stay/hotels"
-                          className="hover:text-accent transition"
-                        >
-                          Hotel
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/where-to-stay/motels"
-                          className="hover:text-accent transition"
-                        >
-                          Motel
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/where-to-stay/apartments"
-                          className="hover:text-accent transition"
-                        >
-                          Apartment
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/where-to-stay/hostel"
-                          className="hover:text-accent transition"
-                        >
-                          Hostel
-                        </Link>
-                      </li>
-                    </ul>
-                    {/* Image and Description */}
-                    <div className="mt-4 lg:mt-0 lg:ml-8 flex flex-col items-center">
-                      <Image
-                        src={hotel}
-                        alt="Hotel Image"
-                        width={360}
-                        height={240}
-                        className=""
-                      />
-                      <p className="mt-2 text-sm text-neutral-500 text-center">
-                        Beautifully designed hotels in Akure for your delight.
-                      </p>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* Follow Us */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-xl font-semibold hover:text-accent transition">
-                  Follow Us
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="p-8 bg-primary-foreground shadow-lg text-4xl font-bold text-neutral-500 max-w-7xl m-auto">
-                  <div className="flex flex-col">
+                <NavigationMenuTrigger>#</NavigationMenuTrigger>
+                <NavigationMenuContent className="flex px-8 w-full justify-between ">
+                  <div className="flex flex-col w-full ">
+                    {" "}
                     <span className="font-semibold text-xl mb-4">
-                      Follow us
+                      Follow us{" "}
                     </span>
-                    <ul className="flex justify-between text-neutral-500">
-                      <li className="flex flex-col">
-                        <Link
-                          href="https://instagram.com"
-                          passHref
-                          className="hover:text-accent transition flex flex-col"
-                        >
-                          Instagram
-                          <span className="text-base ">11k</span>
-                        </Link>
-                      </li>
-                      <li className="flex flex-col">
-                        <Link
-                          href="https://facebook.com"
-                          passHref
-                          className="hover:text-accent transition flex flex-col"
-                        >
-                          Facebook
-                          <span className="text-base ">232k</span>
-                        </Link>
-                      </li>
-                      <li className="flex flex-col">
-                        <Link
-                          href="https://twitter.com"
-                          passHref
-                          className="hover:text-accent transition flex flex-col"
-                        >
-                          Twitter
-                          <span className="text-base ">9k</span>
-                        </Link>
-                      </li>
-                      <li className="flex flex-col">
-                        <Link
-                          href="/#"
-                          passHref
-                          className="hover:text-accent transition flex flex-col"
-                        >
-                          #VisitOndoState
-                          <span className="text-base ">
-                            and share the best moments
-                          </span>
-                        </Link>
-                      </li>
-                    </ul>
+                    <div className="flex flex-col gap-4 text-neutral-600 text-4xl font-bold w-full ">
+                      <Link
+                        href="https://instagram.com"
+                        passHref
+                        className="hover:text-accent transition flex flex-col"
+                      >
+                        Instagram
+                        <span className="text-base ">11k</span>
+                      </Link>
+
+                      <Link
+                        href="https://facebook.com"
+                        passHref
+                        className="hover:text-accent transition flex flex-col"
+                      >
+                        Facebook
+                        <span className="text-base ">232k</span>
+                      </Link>
+
+                      <Link
+                        href="https://twitter.com"
+                        passHref
+                        className="hover:text-accent transition flex flex-col"
+                      >
+                        Twitter
+                        <span className="text-base ">9k</span>
+                      </Link>
+
+                      <Link
+                        href="/#"
+                        passHref
+                        className="hover:text-accent transition flex flex-col"
+                      >
+                        #VisitOndoState
+                        <span className="text-base ">
+                          and share the best moments
+                        </span>
+                      </Link>
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-        </nav>
-
-        {/* Hamburger Menu Icon for Mobile */}
-        <div className="lg:hidden z-[2000]">
-          <Button onClick={toggleMenu} className="text-primary-foreground">
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </Button>
         </div>
-      </div>
+      </nav>
 
+      {/* Hamburger Menu Icon for Mobile */}
+      <div className="lg:hidden bg-primary-foreground flex w-full justify-end">
+        <Button
+          onClick={toggleMenu}
+          className="w-fit z-[30] bg-transparent text-primary hover:bg-transparent hover:text-"
+        >
+          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </Button>
+      </div>
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <nav className="lg:hidden bg-primary-foreground/50  absolute inset-0 h-screen ">
-          <div className=" max-w-7xl h-screen flex justify-end  ">
-            <div className="flex flex-col space-y-4 p-6 mt-16 items-end bg-primary-foreground shadow-md w-1/2 h-full">
+        <nav className="lg:hidden bg-primary-foreground/75 absolute inset-0 top-16 h-screen">
+          <div className="  flex h-screen fixed inset-0 justify-end z-20 bg-neutral-900/50">
+            <div className=" flex flex-col space-y-4 p-6 items-end pt-24 bg-primary-foreground shadow-md w-1/2 h-full">
               {subMenuOpen === null ? (
                 <>
                   <ul className="w-full flex flex-col gap-3">
@@ -405,7 +310,7 @@ export function Header() {
                           </li>
                           <li>
                             <Link
-                              href="/events"
+                              href="/things-to-do/events"
                               className="text-orange-600 hover:text-orange-400 transition"
                             >
                               Events
@@ -413,7 +318,7 @@ export function Header() {
                           </li>
                           <li>
                             <Link
-                              href="/food-drinks"
+                              href="/things-to-do/food-drinks"
                               className="text-pink-600 hover:text-pink-400 transition"
                             >
                               Food & Drinks
@@ -421,7 +326,7 @@ export function Header() {
                           </li>
                           <li>
                             <Link
-                              href="/shopping"
+                              href="/things-to-do/shopping"
                               className="text-teal-600 hover:text-teal-400 transition"
                             >
                               Shopping
@@ -429,7 +334,7 @@ export function Header() {
                           </li>
                           <li>
                             <Link
-                              href="/nightlife"
+                              href="/things-to-do/nightlife"
                               className="text-indigo-600 hover:text-indigo-400 transition"
                             >
                               Nightlife
@@ -437,7 +342,7 @@ export function Header() {
                           </li>
                           <li>
                             <Link
-                              href="/recreation"
+                              href="/things-to-do/recreation"
                               className="text-indigo-600 hover:text-indigo-400 transition"
                             >
                               Recreation
@@ -445,7 +350,7 @@ export function Header() {
                           </li>
                           <li>
                             <Link
-                              href="/culture"
+                              href="/things-to-do/culture"
                               className="text-amber-600 hover:text-amber-400 transition"
                             >
                               Culture
@@ -609,8 +514,32 @@ export function Header() {
           </div>
         </nav>
       )}
-    </header>
+    </>
   );
 }
 
-export default Header;
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

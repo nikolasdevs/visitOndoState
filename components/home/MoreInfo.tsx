@@ -3,12 +3,16 @@
 import React, { useState, useEffect } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
-import { NextButton, PrevButton, usePrevNextButtons } from "../ArrowBtns";
-import "../embla.css";
+import {
+  NextButton,
+  PrevButton,
+  usePrevNextButtons,
+} from "../../embla/ArrowBtns";
+import "../../embla/embla.css";
 import Image, { StaticImageData } from "next/image";
-import { hotelListData } from "@/data/whereToStay/hotelListData";
+import { selectedData } from "@/data/selectedData";
 
-type HotelListData = {
+type SelectedData = {
   id: number;
   imageUrl: StaticImageData;
   title: string;
@@ -21,7 +25,7 @@ type PropType = {
 
 const MainInfo: React.FC<PropType> = ({ options }) => {
   const [filteredSlides, setFilteredSlides] =
-    useState<HotelListData[]>(hotelListData);
+    useState<SelectedData[]>(selectedData);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -33,7 +37,7 @@ const MainInfo: React.FC<PropType> = ({ options }) => {
   } = usePrevNextButtons(emblaApi);
 
   const filterSlidesByCategory = (categoryName: string) => {
-    const filtered = hotelListData.filter(
+    const filtered = selectedData.filter(
       (slide) => slide.category === categoryName
     );
     setFilteredSlides(filtered);
@@ -45,15 +49,15 @@ const MainInfo: React.FC<PropType> = ({ options }) => {
 
   return (
     <div className="md:mt-20 mt-10">
-      <section className="max-w-7xl mx-auto flex flex-col ">
-        <div className="flex flex-col md:flex-row w-full relative gap-6 ">
-          <div className="  font-semibold flex flex-col  text-neutral-500 md:w-4/12 w-full bg-primary-foreground  z-20 p-4">
+      <section className="max-w-7xl mx-auto flex flex-col px-8">
+        <div className="flex flex-col md:flex-row w-full relative gap-6 border-y-2 border-y-primary py-10">
+          <div className="  font-semibold flex flex-col  text-neutral-500 md:w-4/12 w-full bg-transparent z-20 p-4">
             {" "}
             <div className="flex flex-col gap-4 ">
-              <p className=" text-xl text-neutral-600 tracking-normal">
+              <p className=" text-xl text-neutral-600 tracking-normal font-bold">
                 What are you looking for?
               </p>
-              <div className="sm:text-[32px] text-[1.5rem] sm:leading-9 leading-6 tracking-tighter">
+              <div className="sm:text-[32px] text-2xl sm:leading-9 leading-6 tracking-tighter">
                 {[
                   "Accommodation",
                   "Food & Drinks",

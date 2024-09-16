@@ -95,8 +95,8 @@ const MoreEvents = () => {
               <div className="grid gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-center">
                 {eventData[month] && eventData[month].length > 0 ? (
                   eventData[month].map((card) => (
-                    <div key={card.id} className="max-w-sm">
-                      <Link href={card.link}>
+                    <Link href={card.link} key={card.id} className="max-w-sm">
+                      <div>
                         {" "}
                         <motion.div
                           initial={false}
@@ -114,7 +114,7 @@ const MoreEvents = () => {
                             <Image className="" src={card.imageUrl} alt="" />{" "}
                           </motion.div>
                         </motion.div>
-                      </Link>{" "}
+                      </div>{" "}
                       <div className="pt-5 h-48 flex flex-col justify-between ">
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-neutral-700 dark:text-white">
                           {card.title}
@@ -146,7 +146,7 @@ const MoreEvents = () => {
                           </svg>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))
                 ) : (
                   <p className="text-center text-neutral-500">
