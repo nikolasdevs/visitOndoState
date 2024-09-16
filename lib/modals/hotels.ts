@@ -13,6 +13,7 @@ const HotelSchema = new Schema(
     price: { type: "number", required: true },
     description: { type: "string", required: true },
     image: { type: "string", required: true },
+    category: { type: "string", required: true },
   },
 
   {
