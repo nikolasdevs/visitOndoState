@@ -20,7 +20,7 @@ interface HotelSlides {
   id: number;
   title: string;
   description: string;
-  imageUrl: StaticImageData;
+  imageUrl: StaticImageData | string;
   link: string;
 }
 

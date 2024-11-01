@@ -1,8 +1,11 @@
-import Hero from "@/components/where-to-stay/Hero";
-import AccommodationSection from "@/components/where-to-stay/AccommodationSection";
-import React from "react";
+import Hero from '@/components/where-to-stay/Hero';
 
-const page = () => {
+import React from 'react';
+import Link from 'next/link';
+import prisma from '@/lib/db';
+import AccommodationSection from '@/components/where-to-stay/AccommodationSection';
+
+const page = async () => {
   return (
     <div>
       <Hero />

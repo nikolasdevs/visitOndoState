@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/src
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_PASSWORD: example
+  ports:
+    - '5432:5432'

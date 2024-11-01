@@ -4,19 +4,19 @@ import Link from 'next/link';
 import prisma from '@/lib/db';
 
 const page = async () => {
-  const apartments = await prisma.accommodation.findMany({
+  const motels = await prisma.accommodation.findMany({
     where: {
-      type: 'APARTMENT',
+      type: 'MOTEL',
     },
   });
 
   return (
     <div>
       <Hero />
-      {apartments.map((apartment) => (
-        <li key={apartment.id} className="list-none">
-          <Link href={`/where-to-stay/apartments/${apartment.slug}`}>
-            {apartment.title}
+      {motels.map((motel) => (
+        <li key={motel.id} className="list-none">
+          <Link href={`/where-to-stay/motels/${motel.slug}`}>
+            {motel.title}
           </Link>
         </li>
       ))}

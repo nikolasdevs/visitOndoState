@@ -173,7 +173,7 @@ export const apartmentListData: AccommodationData[] = [
     imageUrl: Img1,
     link: "#",
     category:"accommodation"
-    
+
   },
   {
     id: 2,
@@ -311,3 +311,4 @@ export const apartmentListData: AccommodationData[] = [
     category:"accommodation"
   },
 ];
+

@@ -1,7 +1,7 @@
-import IdanreHill from "@/components/destinations/IdanreHill";
-import MoreInfo from "@/components/home/MoreInfo";
-import React from "react";
-import { EmblaOptionsType } from "embla-carousel";
+import IdanreHill from '@/components/destinations/IdanreHill';
+import MoreInfo from '@/components/home/MoreInfo';
+import React from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
 
 const OPTIONS: EmblaOptionsType = { loop: true };
 const SLIDE_COUNT = 1;

@@ -1,9 +1,14 @@
-"use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { apartmentListData, hotelListData } from "@/data/accommodationData";
-import { motion } from "framer-motion";
+'use client';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import prisma from '@/lib/db';
+import { apartmentListData, hotelListData } from '@/data/accommodationData';
+
+const allAccommodations = () => {
+  
+}
 
 const AccommodationSection = () => {
   const [randomHotels, setRandomHotels] = useState<any[]>([]);
@@ -17,7 +22,7 @@ const AccommodationSection = () => {
   }, []);
 
   useEffect(() => {
-    const shuffledMotels = [...hotelListData].sort(() => 0.5 - Math.random());
+    const shuffledMotels = hotelListData.sort(() => 0.5 - Math.random());
     const selectedMotels = shuffledMotels.slice(0, 4);
     setRandomHotels(selectedMotels);
   }, []);
@@ -35,7 +40,7 @@ const AccommodationSection = () => {
       <div className="flex flex-col container py-20 gap-8 w-full">
         <div className="flex flex-col gap-8  w-full">
           <div className="text-primary-foreground font-semibold text-2xl bg-primary px-3 pe-6 py-4 flex justify-between items-center">
-            <p> Hotels</p>
+            <p>Hotels</p>
             <Link
               href="/where-to-stay/hotels"
               className="inline-flex items-center text-base font-medium text-center text-primary-foreground border-b-2 border-b-transparent hover:border-b-2 hover:border-b-primary-foreground"
@@ -65,7 +70,7 @@ const AccommodationSection = () => {
                 className="max-w-sm  rounded-lg  dark:bg-gray-800 dark:border-gray-700"
               >
                 <Link href={card.link}>
-                  {" "}
+                  {' '}
                   <motion.div
                     initial={false}
                     whileHover={{ scale: 1 }} // Slightly zooms in the entire div
@@ -79,10 +84,10 @@ const AccommodationSection = () => {
                       whileHover={{ scale: [null, 1.1] }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image className="" src={card.imageUrl} alt="" />{" "}
+                      <Image className="" src={card.imageUrl} alt="" />{' '}
                     </motion.div>
                   </motion.div>
-                </Link>{" "}
+                </Link>{' '}
                 <div className="pt-5 h-48 flex flex-col justify-between ">
                   <Link href={card.link}>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-neutral-700 dark:text-white">
@@ -95,7 +100,7 @@ const AccommodationSection = () => {
                   </p>
 
                   <Link
-                    href="#"
+                    href="/where-to-stay/motels"
                     className="inline-flex items-center text-sm font-medium text-center text-primary"
                   >
                     More
@@ -153,7 +158,7 @@ const AccommodationSection = () => {
                 className="max-w-sm  rounded-lg  dark:bg-gray-800 dark:border-gray-700"
               >
                 <Link href={card.link}>
-                  {" "}
+                  {' '}
                   <motion.div
                     initial={false}
                     whileHover={{ scale: 1 }} // Slightly zooms in the entire div
@@ -167,10 +172,10 @@ const AccommodationSection = () => {
                       whileHover={{ scale: [null, 1.1] }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image className="" src={card.imageUrl} alt="" />{" "}
+                      <Image className="" src={card.imageUrl} alt="" />{' '}
                     </motion.div>
                   </motion.div>
-                </Link>{" "}
+                </Link>{' '}
                 <div className="pt-5 h-48 flex flex-col justify-between ">
                   <Link href={card.link}>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-neutral-700 dark:text-white">
@@ -241,7 +246,7 @@ const AccommodationSection = () => {
                 className="max-w-sm  rounded-lg  dark:bg-gray-800 dark:border-gray-700"
               >
                 <Link href={card.link}>
-                  {" "}
+                  {' '}
                   <motion.div
                     initial={false}
                     whileHover={{ scale: 1 }} // Slightly zooms in the entire div
@@ -255,10 +260,10 @@ const AccommodationSection = () => {
                       whileHover={{ scale: [null, 1.1] }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image className="" src={card.imageUrl} alt="" />{" "}
+                      <Image className="" src={card.imageUrl} alt="" />{' '}
                     </motion.div>
                   </motion.div>
-                </Link>{" "}
+                </Link>{' '}
                 <div className="pt-5 h-48 flex flex-col justify-between ">
                   <Link href={card.link}>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-neutral-700 dark:text-white">
